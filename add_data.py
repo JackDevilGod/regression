@@ -1,12 +1,18 @@
-def add_data():
+def add_data() -> None:
+    """
+    function to add data points to the file if there is no pre filled in file provided
+    :return: None
+    """
+
     text: dict[str, str] = {"dimension": "input dimension size\n", "data": "input data number with spaces or stop\n"}
+    # get number of variables
     text_dimension: str = ""
 
     while not text_dimension.isnumeric():
         text_dimension = input(text["dimension"])
 
     number_dimension: int = int(text_dimension)
-
+    # main part of writing to file
     data: str = ""
 
     with open("data.csv", "w") as sheet:
